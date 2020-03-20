@@ -1,4 +1,5 @@
 using System;
+
 namespace NinjaWizardSamurai
 {
     public class Wizard : Human
@@ -10,24 +11,26 @@ namespace NinjaWizardSamurai
             Health = 50;
         }
 
-        public override int Attack(Human target) //fix this!!!
+        public override int Attack(Human target)
         {
-            target.Health -= 5 * Intelligence;
-            // if (Health < 50)
-            // {
-                Health += 5 * Intelligence; 
-            // }
-            // else
-            // {
-            //     Health = 50;
-            // }
-            // ^^^function heal?????????????????
+            Console.WriteLine($"{ Name } is attacking { target.Name }!!");
+            int Damage = 5 * Intelligence;
+            Console.WriteLine($"{ target.Name } has { target.Health } left!!");
+            target.Health -= Damage;
+            Health += Damage; 
+            if(Health > 50)
+            {
+                Health = 50;
+            }
+            Console.WriteLine($"{ Name } is healed back to { Health }!!!");
             return target.Health;
         }
 
         public int Heal(Human target)
         {
-            target.Health += 10 * Intelligence;
+            int Healing = 10 * Intelligence;
+            Console.WriteLine($"{ Name} is healing { target.Name }!");
+            target.Health += Healing;
             return target.Health;
         }
     }
