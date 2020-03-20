@@ -20,24 +20,24 @@ namespace NinjaWizardSamurai
             if (x == 1)
             {
                 Damage += 10;
-                target.Health -= Damage;
+                target.health -= Damage;
                 Console.WriteLine("Critical Hit!");
             }
             else
             {
-                target.Health -= Damage;
+                target.health -= Damage;
             }
             Console.WriteLine($"{target.Name} has {target.Health} health left!!");
-            return target.Health;
+            return target.health;
         }
 
         public int Steal(Human target)
         {
             Console.WriteLine($"{ Name } is stealing health from { target.Name }");
             int StolenHP = 5;
-            target.Health -= StolenHP;
-            Health += StolenHP;
-            return target.Health;
+            target.health -= StolenHP;
+            health += StolenHP;
+            return target.health;
         }
     }
 }
