@@ -1,4 +1,5 @@
 using System;
+
 namespace NinjaWizardSamurai
 {
     public class Ninja : Human
@@ -6,32 +7,37 @@ namespace NinjaWizardSamurai
 
         public Ninja(string name) : base(name)
         {
-        //     Name = name;
-        //     Strength = 3;
-        //     Intelligence = 25;
             Dexterity = 175;
         }
 
-        public override int Attack(Human target)
+         public override int Attack(Human target)
         {
-            target.Health -= 5 * Dexterity;
+            Console.WriteLine($"{ Name } is attacking { target.Name }");
+            int Damage = 5 * Dexterity;
             Random rand = new Random();
             int x = rand.Next(1,6);
-            Console.WriteLine(x);
+            // Console.WriteLine(x);
             if (x == 1)
             {
-                target.Health -= 10;
+                Damage += 10;
+                target.Health -= Damage;
                 Console.WriteLine("Critical Hit!");
             }
+            else
+            {
+                target.Health -= Damage;
+            }
+            Console.WriteLine($"{target.Name} has {target.Health} health left!!");
             return target.Health;
         }
 
         public int Steal(Human target)
         {
-            target.Health -= 5;
-            Health += 5;
+            Console.WriteLine($"{ Name } is stealing health from { target.Name }");
+            int StolenHP = 5;
+            target.Health -= StolenHP;
+            Health += StolenHP;
             return target.Health;
         }
-
     }
 }
