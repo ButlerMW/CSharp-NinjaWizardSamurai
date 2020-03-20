@@ -11,8 +11,12 @@ namespace NinjaWizardSamurai
         public int Intelligence;
         public int Dexterity;
         // Add an additional private field for health, and a public property to access or "get" health
-        public int Health {get;set;}
-
+        private int Health {get;set;}
+        public int health
+        {
+            get { return Health; }
+            set { Health = value; }
+        }
         
         
         // Add a constructor method that takes a string to initialize Name - and that will initialize Strength, Intelligence, and Dexterity to a default value, 3 and health to default value of 100
