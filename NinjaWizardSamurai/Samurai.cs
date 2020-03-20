@@ -11,16 +11,22 @@ namespace NinjaWizardSamurai
 
         public override int Attack(Human target)
         {
-            base.Attack(target); // calling the base attack
+            Console.WriteLine($"{ Name } is attacking { target.Name }!");
             if (target.Health < 50)
             {
+                Console.WriteLine($"Instant Kill!!!");
                 target.Health = 0;
+            }
+            else
+            {
+                base.Attack(target); // calls the base attack 
             }
             return target.Health;
         }
 
-        public int Meditate() //heal self?
+        public int Meditate() 
         {
+            Console.WriteLine($"{ Name } is meditating and back to full health!");
             Health = 200;
             return Health;
         }
