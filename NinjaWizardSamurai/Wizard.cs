@@ -8,7 +8,7 @@ namespace NinjaWizardSamurai
         public Wizard(string name) : base(name)
         {
             Intelligence = 25;
-            Health = 50;
+            health = 50;
         }
 
         public override int Attack(Human target)
@@ -16,22 +16,22 @@ namespace NinjaWizardSamurai
             Console.WriteLine($"{ Name } is attacking { target.Name }!!");
             int Damage = 5 * Intelligence;
             Console.WriteLine($"{ target.Name } has { target.Health } left!!");
-            target.Health -= Damage;
-            Health += Damage; 
-            if(Health > 50)
+            target.health -= Damage;
+            health += Damage; 
+            if(health > 50)
             {
-                Health = 50;
+                health = 50;
             }
             Console.WriteLine($"{ Name } is healed back to { Health }!!!");
-            return target.Health;
+            return target.health;
         }
 
         public int Heal(Human target)
         {
             int Healing = 10 * Intelligence;
             Console.WriteLine($"{ Name} is healing { target.Name }!");
-            target.Health += Healing;
-            return target.Health;
+            target.health += Healing;
+            return target.health;
         }
     }
 }
